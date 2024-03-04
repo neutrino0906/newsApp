@@ -39,7 +39,8 @@ class MainActivity3 : AppCompatActivity() {
         var isFullScreen = false
 
 
-        author.text = "-By $authorText"
+        if(authorText!="") author.text = "-By $authorText"
+        else author.text = "-By Anonymous"
         title.text = titleText
         desc.text = descriptionText
 

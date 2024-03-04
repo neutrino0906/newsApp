@@ -44,7 +44,10 @@ class MyAdapter(private val context : Context, private val newsList: List<Item>)
         })
 
         holder.title.text = newsList[position].title
-        holder.author.text = newsList[position].author
+        val temp = newsList[position].author
+        if(temp!="") holder.author.text = temp
+        else holder.author.text = "Anonymous"
+
         try{
             Picasso.get()
                 .load(newsList[position].thumbnail)
@@ -86,7 +89,7 @@ class MyAdapter2(val context: Context, val feed: Feed) : RecyclerView.Adapter<My
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.author.text = feed.author
+        holder.author.text = "ABC.net"
         holder.title.text = feed.title
         Picasso.get()
             .load(feed.image)
